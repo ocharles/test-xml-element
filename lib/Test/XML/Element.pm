@@ -17,9 +17,7 @@ sub element_is {
     my ($element, $name, $msg) = @_;
 
     my $xml = XMLin($element, KeepRoot => 1);
-    my @keys = keys %$xml; # Will be 1 element - due to root node constraint
-
-    return $tb->ok($keys[0] eq $name, $msg);
+    return $tb->ok(exists $xml->{$name}, $msg);
 }
 
 sub has_attribute {
