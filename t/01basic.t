@@ -4,4 +4,4 @@ BEGIN { use_ok 'Test::XML::Element' };
 
 element_is('<foobar />', 'foobar');
 has_attribute('<foobar color="red" />', 'color');
-has_attribute('<foobar color="red" />', color => 'red');
+attribute_is('<foobar color="red" />', color => 'red');

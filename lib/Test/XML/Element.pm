@@ -8,7 +8,7 @@ use 5.008;
 our $VERSION = '0.01';
 
 use base 'Test::Builder::Module';
-our @EXPORT = qw( element_is has_attribute );
+our @EXPORT = qw( element_is has_attribute attribute_is );
 
 use XML::Simple;
 
@@ -28,7 +28,7 @@ sub has_attribute {
     return $tb->ok(exists $xml->{$attribute}, $msg);
 }
 
-sub attribute_has_value {
+sub attribute_is {
     my $tb = Test::XML::Element->builder;
     my ($element, $attribute, $value, $msg) = @_;
 
@@ -69,7 +69,7 @@ Test that an element is of the correct type.
 
 Check that an element has a certain attribute
 
-=head2 attribute_has_value $element, $attribute, $value, [$message]
+=head2 attribute_is $element, $attribute, $value, [$message]
 
 Check that an attribute has a certain attribute, and it is set to a certain
 value.
